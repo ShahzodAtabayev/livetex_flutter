@@ -7,21 +7,22 @@ import 'package:livetex_flutter/data/entities/visitor.dart';
 import 'package:flutter/material.dart';
 
 class FileMessage extends BaseEntity implements GenericMessage {
-  String id;
+  String _id;
   String name;
   String url;
   DateTime? createdAt;
   Creator creator;
 
   FileMessage({
+    required String? id,
     required this.name,
     required this.url,
     required this.createdAt,
     required this.creator,
-  }) : id = UniqueKey().toString();
+  }) : _id = id ?? UniqueKey().toString();
 
   FileMessage.fromResponse(FileUploadedResponse response)
-      : id = UniqueKey().toString(),
+      : _id = UniqueKey().toString(),
         name = response.name ?? '',
         url = response.url ?? '',
         createdAt = DateTime.now(),
@@ -39,6 +40,7 @@ class FileMessage extends BaseEntity implements GenericMessage {
 
   factory FileMessage.fromMap(Map<String, dynamic> json) {
     return FileMessage(
+      id: json['id'],
       url: json['url'],
       name: json['name'],
       createdAt: DateTime.tryParse(json['createdAt']),
@@ -60,4 +62,7 @@ class FileMessage extends BaseEntity implements GenericMessage {
 
   @override
   DateTime? get createdTime => createdAt;
+
+  @override
+  String? get id => _id;
 }

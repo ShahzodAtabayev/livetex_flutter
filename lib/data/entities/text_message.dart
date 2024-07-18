@@ -5,7 +5,7 @@ import 'package:livetex_flutter/data/entities/keyboard_entity.dart';
 import 'package:livetex_flutter/data/models/chat_event.dart';
 
 class TextMessage extends BaseEntity implements GenericMessage {
-  String id;
+  String _id;
   String content;
   DateTime? createdAt;
   Creator creator;
@@ -13,13 +13,13 @@ class TextMessage extends BaseEntity implements GenericMessage {
   KeyboardEntity? keyboard;
 
   TextMessage({
-    required this.id,
+    required String id,
     required this.content,
     required this.createdAt,
     required this.creator,
     this.attributes,
     this.keyboard,
-  });
+  }) : _id = id;
 
   @override
   Creator getCreator() {
@@ -51,4 +51,7 @@ class TextMessage extends BaseEntity implements GenericMessage {
 
   @override
   DateTime? get createdTime => createdAt;
+
+  @override
+  String? get id => _id;
 }
