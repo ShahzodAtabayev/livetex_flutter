@@ -8,7 +8,7 @@ import 'package:livetex_flutter/data/entities/employee_typing_event.dart';
 import 'package:livetex_flutter/data/entities/history_entity.dart';
 import 'package:livetex_flutter/data/entities/response_entity.dart';
 import 'package:livetex_flutter/data/entities/typing_event.dart';
-import 'package:livetex_flutter/data/models/chat_event.dart';
+import 'package:livetex_flutter/core/enums/chat_event_type.dart';
 import 'package:uuid/uuid.dart';
 
 abstract class BaseEntity {

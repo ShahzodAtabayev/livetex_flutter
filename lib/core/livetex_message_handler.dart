@@ -3,7 +3,7 @@ import 'package:livetex_flutter/data/entities/employee_typing_event.dart';
 import 'package:livetex_flutter/data/entities/button_pressed_event.dart';
 import 'package:livetex_flutter/core/enums/livetex_connection_state.dart';
 import 'package:livetex_flutter/data/models/file_uploaded_response.dart';
-import 'package:livetex_flutter/data/entities/get_history_request.dart';
+import 'package:livetex_flutter/data/models/get_history_request.dart';
 import 'package:livetex_flutter/data/entities/attributes_request.dart';
 import 'package:livetex_flutter/data/entities/attributes_entity.dart';
 import 'package:livetex_flutter/data/entities/response_entity.dart';

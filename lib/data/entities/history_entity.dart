@@ -2,7 +2,7 @@ import 'package:livetex_flutter/data/entities/base_entity.dart';
 import 'package:livetex_flutter/data/entities/file_message.dart';
 import 'package:livetex_flutter/data/entities/generic_message.dart';
 import 'package:livetex_flutter/data/entities/text_message.dart';
-import 'package:livetex_flutter/data/models/chat_event.dart';
+import 'package:livetex_flutter/core/enums/chat_event_type.dart';
 
 class HistoryEntity extends BaseEntity {
   DateTime? createdAt;

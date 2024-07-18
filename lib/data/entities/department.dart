@@ -1,5 +1,5 @@
 import 'package:livetex_flutter/data/entities/base_entity.dart';
-import 'package:livetex_flutter/data/models/chat_event.dart';
+import 'package:livetex_flutter/core/enums/chat_event_type.dart';
 
 class Department extends BaseEntity implements Comparable<Department> {
   String? id;

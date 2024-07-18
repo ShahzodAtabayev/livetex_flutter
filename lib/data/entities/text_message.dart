@@ -2,7 +2,7 @@ import 'package:livetex_flutter/data/entities/base_entity.dart';
 import 'package:livetex_flutter/data/entities/creator.dart';
 import 'package:livetex_flutter/data/entities/generic_message.dart';
 import 'package:livetex_flutter/data/entities/keyboard_entity.dart';
-import 'package:livetex_flutter/data/models/chat_event.dart';
+import 'package:livetex_flutter/core/enums/chat_event_type.dart';
 
 class TextMessage extends BaseEntity implements GenericMessage {
   String _id;
