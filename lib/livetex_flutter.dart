@@ -11,8 +11,8 @@ class LiveTexFlutter {
 
   LiveTexFlutter._(LiveTexBuilder builder) {
     _instance = this;
-    _socketListener = builder._socketListener;
-    _messagesHandler = builder._messagesHandler;
+    _socketListener = builder.socketListener;
+    _messagesHandler = builder.messagesHandler;
   }
 
   static LiveTexFlutter get instance {
@@ -49,8 +49,9 @@ class LiveTexBuilder {
   String? deviceToken;
   bool isNetworkLoggingEnabled;
   bool isWebsocketLoggingEnabled;
-  LiveTexMessagesHandler _messagesHandler = LiveTexMessagesHandler();
-  LiveTexWebSocketListener _socketListener = LiveTexWebSocketListener();
+  LiveTexMessagesHandler? _messagesHandler;
+
+  LiveTexWebSocketListener? _socketListener;
 
   LiveTexBuilder({
     required this.touchpoint,
@@ -97,7 +98,11 @@ class LiveTexBuilder {
   void build() {
     LiveTexFlutter.init(this);
     NetworkManager.init(host, authEndpoint, touchpoint, deviceToken);
-    _messagesHandler.init(isWebsocketLoggingEnabled);
-    _socketListener.init();
+    messagesHandler.init(isWebsocketLoggingEnabled);
+    socketListener.init();
   }
+
+  LiveTexMessagesHandler get messagesHandler => _messagesHandler ??= LiveTexMessagesHandler();
+
+  LiveTexWebSocketListener get socketListener => _socketListener ??= LiveTexWebSocketListener();
 }
