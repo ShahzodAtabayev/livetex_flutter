@@ -53,5 +53,5 @@ class TextMessage extends BaseEntity implements GenericMessage {
   DateTime? get createdTime => createdAt;
 
   @override
-  String? get id => _id;
+  String get id => _id;
 }
