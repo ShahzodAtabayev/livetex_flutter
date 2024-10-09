@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -8,7 +9,10 @@ class FooterWidget extends StatefulWidget {
   final FocusNode focusNode;
   final TextEditingController textEditingController;
 
-  const FooterWidget({super.key, required this.focusNode, required this.textEditingController});
+  const FooterWidget(
+      {super.key,
+      required this.focusNode,
+      required this.textEditingController});
 
   @override
   State<FooterWidget> createState() => _FooterWidgetState();
@@ -54,8 +58,10 @@ class _FooterWidgetState extends State<FooterWidget> {
                 labelText: 'Enter message',
                 floatingLabelBehavior: FloatingLabelBehavior.auto,
                 floatingLabelAlignment: FloatingLabelAlignment.start,
-                labelStyle: const TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
-                floatingLabelStyle: const TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+                labelStyle:
+                    const TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+                floatingLabelStyle:
+                    const TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
                 fillColor: Colors.white,
                 suffixIcon: IconButton(
                   onPressed: () {
@@ -111,9 +117,8 @@ class _FooterWidgetState extends State<FooterWidget> {
       setState(() {
         _isValid = false;
       });
-    } catch (_, __) {
-      print(_);
-      print(__);
+    } catch (e, s) {
+      log("Error sending message", error: e, stackTrace: s);
     }
     setState(() {
       _isLoading = false;
@@ -124,9 +129,11 @@ class _FooterWidgetState extends State<FooterWidget> {
     final ImagePicker picker = ImagePicker();
     final pickedImage = await picker.pickImage(source: ImageSource.gallery);
     if (pickedImage != null) {
-      final fileUploadedResponse =
-          await LiveTexFlutter.instance.networkManager.apiManager.uploadFile(File(pickedImage.path));
-      await LiveTexFlutter.instance.messagesHandler.sendFileMessage(fileUploadedResponse);
+      final fileUploadedResponse = await LiveTexFlutter
+          .instance.networkManager.apiManager
+          .uploadFile(File(pickedImage.path));
+      await LiveTexFlutter.instance.messagesHandler
+          .sendFileMessage(fileUploadedResponse);
     }
     // final actions = <SelectionButtonsItem>[];
     // actions.add(
