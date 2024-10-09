@@ -3,8 +3,6 @@
 library;
 
 class AuthData {
-  AuthData._(this._visitorToken, this._customVisitorToken);
-
   AuthData.withVisitorToken({required String visitorToken}) {
     _visitorToken = visitorToken;
   }
@@ -13,7 +11,10 @@ class AuthData {
     _customVisitorToken = customVisitorToken;
   }
 
-  AuthData.withVisitorAndCustomTokens({required String visitorToken, required String customVisitorToken}) {
+  AuthData.withVisitorAndCustomTokens({
+    required String visitorToken,
+    required String customVisitorToken,
+  }) {
     _customVisitorToken = customVisitorToken;
     _visitorToken = visitorToken;
   }
