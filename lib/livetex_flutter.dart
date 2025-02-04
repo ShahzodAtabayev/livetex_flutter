@@ -17,7 +17,8 @@ class LiveTexFlutter {
 
   static LiveTexFlutter get instance {
     if (_instance == null) {
-      throw StateError("LiveTex instance method called too early. Create LiveTex instance with LiveTexBuilder()");
+      throw StateError(
+          "LiveTex instance method called too early. Create LiveTex instance with LiveTexBuilder()");
     }
     return _instance!;
   }
@@ -102,7 +103,9 @@ class LiveTexBuilder {
     socketListener.init();
   }
 
-  LiveTexMessagesHandler get messagesHandler => _messagesHandler ??= LiveTexMessagesHandler();
+  LiveTexMessagesHandler get messagesHandler =>
+      _messagesHandler ??= LiveTexMessagesHandler();
 
-  LiveTexWebSocketListener get socketListener => _socketListener ??= LiveTexWebSocketListener();
+  LiveTexWebSocketListener get socketListener =>
+      _socketListener ??= LiveTexWebSocketListener();
 }
